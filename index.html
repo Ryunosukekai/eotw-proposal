@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EO TOKYO WEST ｜ ウェブサイト リニューアル構成提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Noto+Serif+JP:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea;--paper-2:#ebe6db;--ink:#16181d;--ink-soft:#3a3b40;
+    --navy:#1d2842;--muted:#7c7567;--line:#16181d;--accent:#8a3b2e;
+    --ph:#e1dacb;--ph-line:#c8bfa9;
+    --keep:#e2efda;--rev:#dbe7f3;--mrg:#ececec;--rmv:#f6dedb;--new:#f7e3d2;
+    --keep-d:#6f9160;--rev-d:#4f74a0;--mrg-d:#9a948a;--rmv-d:#b0584a;--new-d:#c4794a;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .mincho{font-family:'Noto Serif JP',serif}
+  .pf{font-family:'Playfair Display',serif}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+  a{color:inherit}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:900;background:rgba(244,241,234,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;letter-spacing:.04em}
+  .brand small{font-family:'Noto Sans JP';font-weight:500;font-size:8px;letter-spacing:.34em;color:var(--muted);display:block;margin-top:2px}
+  .navlinks{display:flex;gap:22px;list-style:none}
+  .navlinks a{text-decoration:none;font-size:11.5px;letter-spacing:.06em;color:var(--ink-soft);transition:color .2s}
+  .navlinks a:hover{color:var(--accent)}
+  .credit{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+
+  /* cover */
+  .cover{min-height:92vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line);position:relative}
+  .cover .tag{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:34px}
+  .cover h1{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(36px,6.5vw,84px);line-height:1.12;letter-spacing:.01em}
+  .cover h1 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--accent);font-weight:500}
+  .cover .sub{margin-top:36px;max-width:54ch;font-size:15px;color:var(--ink-soft)}
+  .cover .meta{margin-top:54px;display:flex;gap:40px;flex-wrap:wrap;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:24px}
+  .cover .meta b{display:block;color:var(--ink);font-weight:500;font-size:13px;letter-spacing:.04em;margin-top:5px;text-transform:none}
+
+  /* section scaffold */
+  section{padding:clamp(64px,9vw,116px) 0;border-bottom:1px solid var(--line);position:relative}
+  .sec-h{display:flex;align-items:baseline;gap:18px;margin-bottom:46px}
+  .sec-h .no{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--accent)}
+  .sec-h .t{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(23px,3.2vw,40px);line-height:1.3}
+  .sec-h .en{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-left:auto;border-top:1px solid var(--line);padding-top:7px;white-space:nowrap}
+  .lead{font-size:15.5px;color:var(--ink-soft);max-width:64ch;margin-bottom:8px}
+
+  /* index */
+  .idx{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px}
+  .idx a{display:flex;gap:18px;align-items:baseline;text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(22,24,29,.14);transition:padding .25s}
+  .idx a:hover{padding-left:10px;color:var(--accent)}
+  .idx .n{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--accent);min-width:26px}
+  .idx .nm{font-family:'Noto Serif JP',serif;font-weight:500;font-size:16px}
+  .idx .nm span{display:block;font-family:'Noto Sans JP';font-weight:300;font-size:11px;color:var(--muted);margin-top:2px}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px}
+  .pill{background:var(--paper);padding:32px 26px}
+  .pill .pn{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--accent)}
+  .pill h3{font-family:'Noto Serif JP',serif;font-weight:500;font-size:19px;margin:12px 0 12px;line-height:1.45}
+  .pill p{font-size:13px;color:var(--ink-soft)}
+
+  /* generic table */
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{border:1px solid var(--ph-line);padding:11px 13px;text-align:left;vertical-align:top}
+  thead th{background:var(--navy);color:var(--paper);font-weight:500;font-size:11.5px;letter-spacing:.04em}
+  tbody tr:nth-child(even){background:rgba(225,218,203,.32)}
+  td .pf{color:var(--muted);font-style:italic}
+
+  /* current numbers */
+  .cur-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+  .issues{list-style:none}
+  .issues li{padding:16px 0;border-bottom:1px solid rgba(22,24,29,.14);display:flex;gap:14px}
+  .issues .ic{font-family:'Playfair Display',serif;font-style:italic;color:var(--accent);font-size:14px;min-width:20px}
+  .issues b{font-family:'Noto Serif JP',serif;font-weight:500}
+  .issues p{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+
+  /* sitemap tree */
+  .tree{font-family:'Noto Sans JP';font-size:13.5px;background:var(--paper-2);border:1px solid var(--line);padding:30px clamp(20px,3vw,40px);line-height:2.05;white-space:pre-wrap;overflow-x:auto}
+  .tree b{font-family:'Noto Serif JP';font-weight:700;font-size:14.5px}
+  .tg{display:inline-block;font-size:9.5px;letter-spacing:.05em;padding:1px 8px;border-radius:2px;margin-left:6px;vertical-align:middle;font-weight:500}
+  .tg.keep{background:var(--keep)}.tg.rev{background:var(--rev)}.tg.mrg{background:var(--mrg)}.tg.rmv{background:var(--rmv)}.tg.new{background:var(--new)}
+
+  /* wireframe device */
+  .device{border:1px solid var(--line);border-radius:9px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(22,24,29,.5);background:#fff;margin-top:10px}
+  .device .bar{height:38px;background:var(--paper-2);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 14px;gap:7px}
+  .device .bar i{width:10px;height:10px;border-radius:50%;background:#cfc6b4;display:block}
+  .device .bar .url{margin-left:14px;font-size:10.5px;color:var(--muted);letter-spacing:.04em;background:var(--paper);border:1px solid var(--ph-line);border-radius:20px;padding:4px 16px}
+  .device iframe{width:100%;height:600px;border:0;display:block;background:#f4f1ea}
+  .wf-note{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:16px;font-size:12px;color:var(--muted)}
+  .btn{display:inline-block;text-decoration:none;border:1px solid var(--ink);padding:11px 22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .wf-secs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+  .wf-secs div{font-size:12px;border-left:2px solid var(--accent);padding-left:12px;color:var(--ink-soft)}
+  .wf-secs b{font-family:'Noto Serif JP';font-weight:500;color:var(--ink);display:block}
+
+  /* migration bar */
+  .mig-bar{display:flex;height:54px;border:1px solid var(--line);overflow:hidden;margin:6px 0 10px;font-size:11px}
+  .mig-bar span{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500;letter-spacing:.04em}
+  .mig-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-soft);margin-bottom:34px}
+  .mig-legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .mig-flow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:'Noto Serif JP';font-size:15px;margin-top:8px}
+  .mig-flow .big{font-family:'Playfair Display';font-size:34px;font-style:italic}
+  .mig-flow .ar{color:var(--accent)}
+  .st-cell{font-weight:500;text-align:center;font-size:11.5px;padding:5px 0;border-radius:2px}
+  .keepb{background:var(--keep)}.revb{background:var(--rev)}.mrgb{background:var(--mrg)}.rmvb{background:var(--rmv)}.newb{background:var(--new)}
+
+  /* new pages */
+  .np-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .np{background:var(--paper);padding:26px 24px}
+  .np .top{display:flex;justify-content:space-between;align-items:baseline}
+  .np h3{font-family:'Noto Serif JP';font-weight:500;font-size:19px}
+  .np .url{font-size:11px;color:var(--muted);font-family:'Playfair Display';font-style:italic}
+  .np .pri{font-size:9.5px;letter-spacing:.1em;padding:2px 9px;border-radius:2px}
+  .np .pri.high{background:var(--new-d);color:#fff}.np .pri.mid{background:var(--new)}
+  .np p{font-size:12.5px;color:var(--ink-soft);margin-top:12px}
+  .np .inc{font-size:11.5px;color:var(--muted);margin-top:12px;border-top:1px solid rgba(22,24,29,.12);padding-top:12px}
+
+  /* roadmap */
+  .road{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .step{background:var(--paper);padding:26px 18px;position:relative}
+  .step.done{background:var(--navy);color:var(--paper)}
+  .step .ph{font-family:'Playfair Display';font-style:italic;font-size:13px;color:var(--accent)}
+  .step.done .ph{color:#cf9b8f}
+  .step h4{font-family:'Noto Serif JP';font-weight:500;font-size:15.5px;margin:9px 0 8px}
+  .step p{font-size:11px;opacity:.85}
+  .step .badge{position:absolute;top:14px;right:14px;font-size:9px;letter-spacing:.1em;border:1px solid currentColor;padding:2px 7px;border-radius:2px}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 40px;border:none}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+  .foot .big{font-family:'Noto Serif JP';font-weight:500;font-size:clamp(22px,3vw,34px);line-height:1.4;max-width:20ch}
+  .foot .big em{font-family:'Playfair Display';font-style:italic;color:#cf9b8f}
+  .foot .sig{text-align:right;font-size:11px;letter-spacing:.1em;color:rgba(244,241,234,.6)}
+  .foot .sig b{font-family:'Playfair Display';font-size:18px;color:var(--paper);letter-spacing:.04em;display:block;margin-bottom:6px;font-style:italic}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media(max-width:900px){
+    .navlinks{display:none}
+    .idx,.cur-grid{grid-template-columns:1fr;gap:0}
+    .pillars,.np-grid{grid-template-columns:1fr}
+    .road{grid-template-columns:1fr 1fr}
+    .wf-secs{grid-template-columns:1fr}
+    .cur-grid{gap:40px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">EO TOKYO WEST<small>RENEWAL PROPOSAL</small></div>
+    <ul class="navlinks">
+      <li><a href="#s01">要点</a></li>
+      <li><a href="#s02">現状</a></li>
+      <li><a href="#s03">設計思想</a></li>
+      <li><a href="#s04">構成</a></li>
+      <li><a href="#s05">ワイヤー</a></li>
+      <li><a href="#s06">移行</a></li>
+      <li><a href="#s08">進め方</a></li>
+    </ul>
+    <div class="credit">Galante</div>
+  </div>
+</header>
+
+<!-- COVER -->
+<div class="wrap">
+  <div class="cover">
+    <div class="tag reveal">Website Renewal Proposal — 2026</div>
+    <h1 class="reveal">東京・西の経営者を、<br><em>一冊の物語</em>として<br>編み直す。</h1>
+    <p class="sub reveal">EO Tokyo West コーポレートサイト リニューアル構成提案。世界的メディアコングロマリット Condé Nast の「親がブランド群を束ねて魅せる」設計思想を範に、Westが持つ91人の経営者と5つの活動を、信頼の伝わるポートフォリオへ再構成します。</p>
+    <div class="meta reveal">
+      <span>提案対象<b>理事会 / 制作パートナー</b></span>
+      <span>現状規模<b>全 181 URL</b></span>
+      <span>作成<b>株式会社 Galante</b></span>
+      <span>日付<b>2026.06</b></span>
+    </div>
+  </div>
+</div>
+
+<!-- INDEX -->
+<section id="index">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">00</span><span class="t mincho">目次</span><span class="en">Contents</span></div>
+    <div class="idx reveal">
+      <a href="#s01"><span class="n">01</span><span class="nm">提案の要点<span>3つの柱で何を実現するか</span></span></a>
+      <a href="#s02"><span class="n">02</span><span class="nm">現状分析<span>181URLの内訳と4つの課題</span></span></a>
+      <a href="#s03"><span class="n">03</span><span class="nm">設計思想<span>なぜコンデナスト型なのか</span></span></a>
+      <a href="#s04"><span class="n">04</span><span class="nm">新サイト構成<span>サイトマップと差異</span></span></a>
+      <a href="#s05"><span class="n">05</span><span class="nm">ワイヤーフレーム<span>トップページ実物</span></span></a>
+      <a href="#s06"><span class="n">06</span><span class="nm">移行計画<span>残す・消す・新設の全体像</span></span></a>
+      <a href="#s07"><span class="n">07</span><span class="nm">新規ページ要件<span>新設する5ページ</span></span></a>
+      <a href="#s08"><span class="n">08</span><span class="nm">進め方<span>本提案から公開まで</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 要点 -->
+<section id="s01">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">01</span><span class="t mincho">提案の要点</span><span class="en">Executive Summary</span></div>
+    <p class="lead reveal">現状を否定する全面刷新ではありません。Westが既に持つ「個別ページ型」という強みを土台に、見せ方と動線を引き上げ、欠けているページだけを補います。</p>
+    <div class="pillars reveal">
+      <div class="pill">
+        <div class="pn">01</div>
+        <h3>個別ページ型を維持し、<br>コンデナスト型で再構成</h3>
+        <p>91人の経営者という資産を、トップのポートフォリオへ引き上げる。ページ構造は変えず、魅せ方を変える。</p>
+      </div>
+      <div class="pill">
+        <div class="pn">02</div>
+        <h3>不足する物語と、<br>法務ページを新設</h3>
+        <p>会長メッセージ・Westヒストリー・ラーニング・活動トップ・プライバシーポリシーの5ページを追加。</p>
+      </div>
+      <div class="pill">
+        <div class="pn">03</div>
+        <h3>181 → 175 へ、<br>重複と余剰を整理</h3>
+        <p>旧URL・重複投稿・未使用カテゴリを撤去し301で評価を継承。メンバー91はテンプレ1本で一括刷新。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 現状 -->
+<section id="s02">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">02</span><span class="t mincho">現状分析</span><span class="en">Current State</span></div>
+    <div class="cur-grid">
+      <div class="reveal">
+        <p class="lead">公式サイトマップ実測で、現状は全 181 URL。その62%が「人」のページ——Westが個別ページ型である構造が数字に表れています。</p>
+        <table>
+          <thead><tr><th>種別</th><th>件数</th><th>性質</th></tr></thead>
+          <tbody>
+            <tr><td>固定ページ</td><td>7</td><td>トップ・問合せ・入会導線 ほか</td></tr>
+            <tr><td>About EO</td><td>7</td><td>EO紹介・理事・会長・メンバー一覧</td></tr>
+            <tr><td>組織情報</td><td>3</td><td>入会方法・会費・ゲスト</td></tr>
+            <tr><td>活動紹介</td><td>4</td><td>月例会・フォーラム・MyEO・メンター</td></tr>
+            <tr><td><b>メンバー個別</b></td><td><b>91</b></td><td>会員プロフィール（最大の資産）</td></tr>
+            <tr><td>ニュース記事</td><td>34</td><td>例会・活動レポート</td></tr>
+            <tr><td>理事・歴代会長 個別</td><td>22</td><td>14＋8</td></tr>
+            <tr><td>旧投稿・アーカイブ</td><td>13</td><td>旧URL・重複・分類</td></tr>
+            <tr><td colspan="2" style="text-align:right;font-weight:700;background:#fff2cc">合計</td><td style="font-weight:700;background:#fff2cc">181 URL</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reveal">
+        <p class="lead">一方で、リニューアルで手当てすべき課題が4つあります。</p>
+        <ul class="issues">
+          <li><span class="ic">i</span><div><b>物語のページが欠落</b><p>会長メッセージ・Westの歴史/オリジンを語るページが存在しない。</p></div></li>
+          <li><span class="ic">ii</span><div><b>活動「ラーニング」が未掲載</b><p>5つの活動のうちラーニングだけページがない。</p></div></li>
+          <li><span class="ic">iii</span><div><b>プライバシーポリシーが無い</b><p>個人情報を扱うフォームがあるのに方針ページが不在（法務リスク）。</p></div></li>
+          <li><span class="ic">iv</span><div><b>旧URL・重複の混在</b><p>旧 /abouteo/* 6件ほかが現行と重複。URL名と中身のズレも。</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 設計思想 -->
+<section id="s03">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">03</span><span class="t mincho">なぜ、コンデナスト型か</span><span class="en">Design Philosophy</span></div>
+    <p class="lead reveal">VOGUE・GQ・WIRED を擁する Condé Nast の本質は「個の個性を保ったまま、親が一つの世界観で束ねる」こと。これは West の個別ページ型——91人の経営者を個別に魅せる構造——と完全に一致します。デザインの好み以上に、<b>構造思想として正しい参照</b>です。</p>
+    <table class="reveal">
+      <thead><tr><th style="width:38%">コンデナストの要素</th><th>EO Tokyo West への翻訳</th></tr></thead>
+      <tbody>
+        <tr><td>親（コングロマリット）</td><td>EO Tokyo West ＝ 自支部が主役</td></tr>
+        <tr><td>ブランド群（VOGUE/GQ/WIRED…）</td><td><b>メンバー91人</b>（各経営者＝1ブランド）＋ <b>活動5本</b></td></tr>
+        <tr><td>Verso（統一基盤 × ブランド個性）</td><td>West共通の上質トーン × 各メンバー・活動の個性</td></tr>
+        <tr><td>Global → 各国法人</td><td>EO Global → EO Japan → EO Tokyo West の階層</td></tr>
+        <tr><td>About Condé Nast</td><td>「Westを知る」（会長メッセージ／歴史／理事／メンバー）</td></tr>
+        <tr><td>News / Press</td><td>ブログ（例会報告・MyEO・活動報告）</td></tr>
+        <tr><td>Careers（仲間を集める）</td><td>入会導線（JOIN）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 04 構成 -->
+<section id="s04">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">04</span><span class="t mincho">新サイト構成</span><span class="en">Sitemap</span></div>
+    <p class="lead reveal">「Westを知る」を独立セクションとして立て、想い→歴史→運営陣→仲間 が一本の物語として流れる動線に。<span class="tg keep">維持</span><span class="tg rev">改修</span><span class="tg mrg">統合</span><span class="tg new">新規</span> でタグ付けしています。</p>
+    <div class="tree reveal"><b>■ トップ</b>  /<span class="tg rev">改修</span>  コンデナスト型に全面刷新
+
+<b>■ Westを知る</b>  <span style="color:#8a7">— 物語の核</span>
+   ├ 会長メッセージ        /about-eo/message/<span class="tg new">新規</span>
+   ├ Westヒストリー/オリジン /about-eo/history/<span class="tg new">新規</span>  （＋歴代会長の系譜）
+   ├ 理事体制             /about-eo/directors/<span class="tg rev">改修</span> → 個別14
+   └ メンバー紹介          /about-eo/westmember/<span class="tg rev">改修</span> → 個別91
+
+<b>■ EOについて</b>
+   ├ EO Tokyo West とは   <span class="tg rev">改修</span>
+   ├ EO Japan とは        <span class="tg keep">維持</span>
+   └ EO Global とは       <span class="tg keep">維持</span>
+
+<b>■ 活動紹介</b>
+   ├ 活動トップ           /activities/<span class="tg new">新規</span>
+   ├ 月例会 / フォーラム / メンターシップ / MyEO  <span class="tg keep">維持</span>
+   └ ラーニング           /activities/learning/<span class="tg new">新規</span>
+
+<b>■ ブログ</b>  /blog/<span class="tg rev">改修</span>  例会報告・MyEO・活動報告
+
+<b>■ 入会導線 / お問い合わせ</b>  <span class="tg keep">維持</span>
+
+<b>■ プライバシーポリシー</b>  /privacy-policy/<span class="tg new">新規</span></div>
+  </div>
+</section>
+
+<!-- 05 ワイヤー -->
+<section id="s05">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">05</span><span class="t mincho">トップページ ワイヤーフレーム</span><span class="en">Wireframe</span></div>
+    <p class="lead reveal">下は実際に動くワイヤーフレームです（窓の中をスクロールできます）。写真はグレーのプレースホルダー、レイアウトとタイポはコンデナスト型のトーンを反映した中忠実度モックです。</p>
+    <div class="device reveal">
+      <div class="bar"><i></i><i></i><i></i><span class="url">eotokyowest.org</span></div>
+      <iframe src="eo-tokyo-west-wireframe.html" title="EO Tokyo West Wireframe" loading="lazy"></iframe>
+    </div>
+    <div class="wf-note">
+      <span>※ 写真・会社名・記事は仮。数字は実測(91会員・歴代会長8)と一部仮値の混在。</span>
+      <a class="btn" href="eo-tokyo-west-wireframe.html" target="_blank">実物を別タブで開く ↗</a>
+    </div>
+    <div class="wf-secs reveal">
+      <div><b>03 活動ポートフォリオ</b>5活動を"ブランド"のように罫線グリッドで</div>
+      <div><b>04 数字で見る West</b>会員91・第9期・歴代会長8 でスケールを提示</div>
+      <div><b>05 メンバーポートフォリオ</b>91人の顔グリッドを主役に</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 移行 -->
+<section id="s06">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">06</span><span class="t mincho">移行計画</span><span class="en">Migration Plan</span></div>
+    <div class="mig-flow reveal">
+      <span class="big pf">181</span><span>現状URL</span>
+      <span class="ar">───▶</span>
+      <span>撤去 10・統合 1</span><span class="ar">＋</span><span>新規 5</span>
+      <span class="ar">───▶</span>
+      <span class="big pf" style="color:var(--accent)">175</span><span>移行後（概算）</span>
+    </div>
+    <p class="lead reveal" style="margin-top:30px">現状181URLの対応内訳。色は対応区分を表します。</p>
+    <div class="mig-bar reveal">
+      <span style="flex:71;background:var(--keep-d)">維持 71</span>
+      <span style="flex:99;background:var(--rev-d)">改修 99</span>
+      <span style="flex:1;background:var(--mrg-d);min-width:46px">統合 1</span>
+      <span style="flex:10;background:var(--rmv-d);min-width:64px">撤去 10</span>
+    </div>
+    <div class="mig-legend reveal">
+      <span><i style="background:var(--keep-d)"></i>維持＝そのまま活用</span>
+      <span><i style="background:var(--rev-d)"></i>改修＝残すが刷新</span>
+      <span><i style="background:var(--mrg-d)"></i>統合＝他ページへ</span>
+      <span><i style="background:var(--rmv-d)"></i>撤去＝削除（301）</span>
+      <span><i style="background:var(--new-d)"></i>新規＝新規制作 5</span>
+    </div>
+    <table class="reveal">
+      <thead><tr><th>主要ページ / 群</th><th style="width:60px">件数</th><th style="width:90px">対応</th><th>対応内容</th></tr></thead>
+      <tbody>
+        <tr><td>トップ</td><td>1</td><td><div class="st-cell revb">改修</div></td><td>コンデナスト型に全面刷新</td></tr>
+        <tr><td>ブログ一覧</td><td>1</td><td><div class="st-cell revb">改修</div></td><td>カテゴリ再設計（例会/MyEO/活動）</td></tr>
+        <tr><td>メンバー個別</td><td>91</td><td><div class="st-cell revb">改修</div></td><td>テンプレ1本で一括刷新（ポートフォリオ連動）</td></tr>
+        <tr><td>メンバー一覧・理事体制</td><td>2</td><td><div class="st-cell revb">改修</div></td><td>ポートフォリオ化／URL汎用化</td></tr>
+        <tr><td>問合せ・入会導線・活動4・EO紹介2</td><td>17</td><td><div class="st-cell keepb">維持</div></td><td>そのまま活用</td></tr>
+        <tr><td>ニュース34・理事14・会長8</td><td>56</td><td><div class="st-cell keepb">維持</div></td><td>記事・人物個別は資産として継続</td></tr>
+        <tr><td>歴代会長一覧</td><td>1</td><td><div class="st-cell mrgb">統合</div></td><td>Westヒストリーへ統合</td></tr>
+        <tr><td>旧 /abouteo/* ・重複投稿・未使用カテゴリ</td><td>10</td><td><div class="st-cell rmvb">撤去</div></td><td>削除し301リダイレクト</td></tr>
+        <tr><td>会長ﾒｯｾｰｼﾞ・ﾋｽﾄﾘｰ・ﾗｰﾆﾝｸﾞ・活動top・ﾌﾟﾗｲﾊﾞｼｰ</td><td>5</td><td><div class="st-cell newb">新規</div></td><td>新規制作（→ 07参照）</td></tr>
+      </tbody>
+    </table>
+    <p class="wf-note reveal" style="margin-top:18px"><span>※ 全181URLの1行明細は別添スプレッドシートに収録。</span><a class="btn" href="EO_TokyoWest_ページ移行一覧_v1.xlsx">移行一覧 .xlsx を開く ↓</a></p>
+  </div>
+</section>
+
+<!-- 07 新規 -->
+<section id="s07">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">07</span><span class="t mincho">新規制作する5ページ</span><span class="en">New Pages</span></div>
+    <div class="np-grid reveal">
+      <div class="np"><div class="top"><h3>会長メッセージ</h3><span class="pri high">優先 高</span></div><div class="url">/about-eo/message/</div><p>現会長の方針・想いを伝える、Westを知る動線の起点。</p><div class="inc">掲載：会長写真／メッセージ全文／略歴</div></div>
+      <div class="np"><div class="top"><h3>Westヒストリー</h3><span class="pri high">優先 高</span></div><div class="url">/about-eo/history/</div><p>設立経緯・沿革・オリジンを伝える独自性の核。歴代会長を統合。</p><div class="inc">掲載：年表／創設ストーリー／歴代会長の系譜</div></div>
+      <div class="np"><div class="top"><h3>ラーニング</h3><span class="pri mid">優先 中</span></div><div class="url">/activities/learning/</div><p>5つの活動の欠落を補う、学習プログラム紹介ページ。</p><div class="inc">掲載：概要／3カテゴリ／開催実績</div></div>
+      <div class="np"><div class="top"><h3>活動トップ</h3><span class="pri mid">優先 中</span></div><div class="url">/activities/</div><p>5つの活動を束ね、回遊性を高めるハブページ。</p><div class="inc">掲載：5活動カード／各詳細への導線</div></div>
+      <div class="np" style="grid-column:1/-1"><div class="top"><h3>プライバシーポリシー</h3><span class="pri high">優先 高 ・ 法務必須</span></div><div class="url">/privacy-policy/</div><p>個人情報を扱うフォームに対し、保護方針を明示。現状欠落しており最優先で整備すべき。</p><div class="inc">掲載：個人情報保護方針 全文</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 進め方 -->
+<section id="s08">
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="no">08</span><span class="t mincho">本提案から公開まで</span><span class="en">Roadmap</span></div>
+    <p class="lead reveal">本提案書は Phase 1（構成設計）の成果物です。承認後、全ページのワイヤー → 要件定義 → デザイン → 実装/移行 へ進みます。</p>
+    <div class="road reveal">
+      <div class="step done"><div class="ph">Phase 1</div><span class="badge">本書</span><h4>構成設計</h4><p>現状分析・思想・サイトマップ・トップワイヤー・移行計画</p></div>
+      <div class="step"><div class="ph">Phase 2</div><h4>全ページ ワイヤー</h4><p>主要ページのレイアウト骨格を作成</p></div>
+      <div class="step"><div class="ph">Phase 3</div><h4>要件定義</h4><p>各ページの内容・CTAを発注粒度で確定</p></div>
+      <div class="step"><div class="ph">Phase 4</div><h4>デザイン</h4><p>写真・色・タイポを確定しカンプ化</p></div>
+      <div class="step"><div class="ph">Phase 5</div><h4>実装・移行</h4><p>制作・301設定・コンテンツ移行・公開</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="big mincho">賑やかさで魅せず、<br><em>所作で信頼を</em>積む。</div>
+    <div class="sig"><b>Galante</b>EO Tokyo West ｜ Website Renewal Proposal<br>2026.06 — 構成設計 v1</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
