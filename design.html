@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EO Tokyo West — デザイン確認（案B / ハイブリッド）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400;1,500&family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f4f1ea;--paper-2:#ebe6db;--ink:#0c0c31;--ink-soft:#3a3b50;--eoblue:#3d49f2;--eoblue-d:#3239cb;--muted:#5e617d;--line:#0c0c31;--ph-line:#c8bfa9;--maxw:1080px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .mincho{font-family:'Noto Serif JP',serif}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(22px,5vw,56px)}
+  header{border-bottom:1px solid var(--line);padding:clamp(46px,7vw,86px) 0 clamp(34px,5vw,52px)}
+  .kick{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--eoblue);margin-bottom:24px}
+  h1{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(32px,5.5vw,66px);line-height:1.13}
+  h1 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--eoblue)}
+  .intro{margin-top:28px;max-width:60ch;font-size:14.5px;color:var(--ink-soft)}
+  .meta{margin-top:30px;display:flex;gap:30px;flex-wrap:wrap;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--ph-line);padding-top:18px}
+  .meta b{display:block;color:var(--ink);font-weight:500;font-size:12px;text-transform:none;letter-spacing:.02em;margin-top:4px}
+  main{padding:clamp(46px,6vw,76px) 0}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,30px)}
+  .card{border:1px solid var(--line);background:#fff;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -24px rgba(12,12,49,.45)}
+  .card .vis{height:160px;display:flex;align-items:flex-end;padding:18px;position:relative;overflow:hidden}
+  .vis.guide{background:var(--ink)}
+  .vis.wire{background:var(--eoblue)}
+  .vis .sw{position:absolute;top:0;right:0;display:flex;height:100%}
+  .vis .sw i{width:26px;height:100%}
+  .vis .no{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,.7);z-index:1}
+  .card .body{padding:24px 24px 28px}
+  .card h2{font-family:'Noto Serif JP',serif;font-weight:500;font-size:22px}
+  .card .en{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .card p{font-size:13px;color:var(--ink-soft);margin-top:14px}
+  .card .go{margin-top:18px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--eoblue);font-weight:500}
+  .refs{margin-top:clamp(40px,5vw,60px);border-top:1px solid var(--ph-line);padding-top:28px}
+  .refs .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .refs ul{list-style:none;display:flex;gap:28px;flex-wrap:wrap}
+  .refs a{text-decoration:none;color:var(--ink);font-size:13px;border-bottom:1px solid var(--ph-line);padding-bottom:4px;transition:.25s}
+  .refs a:hover{color:var(--eoblue);border-color:var(--eoblue)}
+  .refs a .s{font-size:10.5px;color:var(--muted);margin-left:6px}
+  footer{background:var(--ink);color:var(--paper);padding:42px 0 32px;margin-top:clamp(40px,5vw,64px)}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:11px;letter-spacing:.08em;color:rgba(244,241,234,.6)}
+  .foot b{font-family:'Playfair Display';font-style:italic;color:var(--paper);font-size:16px;display:block;margin-bottom:5px}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kick">EO Tokyo West — Design Review</div>
+    <h1 class="mincho">デザイン確認<br><em>案B ／ ハイブリッド</em></h1>
+    <p class="intro">コンデナスト型の構造と明朝の上質さを保ちつつ、差し色に<strong>EOブルー</strong>、濃色に<strong>EOネイビー</strong>を採用した案です。「独自だけどEOの一員」を狙っています。下の2点をご確認ください。</p>
+    <div class="meta">
+      <span>方針<b>EO準拠の色 × West独自の紙・明朝</b></span>
+      <span>EOブルー<b>差し色限定</b></span>
+      <span>ロゴ<b>規定遵守</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="cards">
+      <a class="card" href="eo-tokyo-west-wireframe-eoblue.html" target="_blank">
+        <div class="vis wire"><div class="sw"><i style="background:#0c0c31"></i><i style="background:#3239cb"></i><i style="background:#a3a7e4"></i></div><span class="no">01</span></div>
+        <div class="body">
+          <h2>トップページ ワイヤー</h2><div class="en">Wireframe — EO Blue</div>
+          <p>EOブルー版の実物。スクロールして全体をご確認いただけます。数字・JOIN・EO階層がEOネイビーで締まります。</p>
+          <div class="go">開く ↗</div>
+        </div>
+      </a>
+      <a class="card" href="color-guide.html" target="_blank">
+        <div class="vis guide"><div class="sw"><i style="background:#3d49f2"></i><i style="background:#5e617d"></i><i style="background:#f4f1ea"></i></div><span class="no">02</span></div>
+        <div class="body">
+          <h2>色調ガイド</h2><div class="en">Color System</div>
+          <p>配色の定義と使用ルール。どこがEO準拠で、どこがWest独自かを全て明示しています。</p>
+          <div class="go">開く ↗</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="refs">
+      <div class="lab">参考 / 比較用</div>
+      <ul>
+        <li><a href="eo-tokyo-west-wireframe.html" target="_blank">テラコッタ版ワイヤー<span class="s">案A・完全独自</span></a></li>
+        <li><a href="index.html" target="_blank">構成提案書（全8章）<span class="s">v1</span></a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>Galante</b>EO Tokyo West ｜ Design Review — 案B</div>
+    <div>2026.06 — 確認用</div>
+  </div>
+</footer>
+</body>
+</html>

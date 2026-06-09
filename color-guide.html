@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EO TOKYO WEST ｜ Color System 色調ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea;--paper-2:#ebe6db;--ink:#0c0c31;--ink-soft:#3a3b50;
+    --eoblue:#3d49f2;--eoblue-d:#3239cb;--navy:#0c0c31;--muted:#5e617d;
+    --line:#0c0c31;--ph-line:#c8bfa9;--maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .mincho{font-family:'Noto Serif JP',serif}.pf{font-family:'Playfair Display',serif}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(22px,5vw,60px)}
+
+  header{border-bottom:1px solid var(--line);padding:clamp(40px,6vw,70px) 0 clamp(28px,4vw,40px)}
+  .kick{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--eoblue);margin-bottom:22px}
+  h1{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(30px,5vw,58px);line-height:1.15}
+  h1 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--eoblue)}
+  .intro{margin-top:28px;max-width:62ch;font-size:14.5px;color:var(--ink-soft)}
+  .meta{margin-top:30px;display:flex;gap:32px;flex-wrap:wrap;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--ph-line);padding-top:18px}
+
+  section{padding:clamp(48px,6vw,82px) 0;border-bottom:1px solid var(--line)}
+  .sh{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+  .sh .no{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--eoblue)}
+  .sh .t{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(20px,2.8vw,32px)}
+  .sh .en{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-left:auto;border-top:1px solid var(--line);padding-top:7px}
+  .lead{font-size:14.5px;color:var(--ink-soft);max-width:64ch;margin-bottom:30px}
+
+  /* swatches */
+  .sw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+  .sw{border:1px solid var(--line);background:#fff;overflow:hidden}
+  .chip{height:120px;display:flex;align-items:flex-end;padding:12px;position:relative}
+  .chip .badge{font-size:9px;letter-spacing:.08em;padding:3px 8px;border-radius:2px;font-weight:500}
+  .badge.eo{background:#fff;color:var(--eoblue-d)}
+  .badge.own{background:rgba(255,255,255,.85);color:#7a7363}
+  .badge.dark-eo{background:var(--eoblue);color:#fff}
+  .sw .body{padding:15px 16px 18px}
+  .sw .nm{font-family:'Noto Serif JP',serif;font-weight:500;font-size:16px}
+  .sw code{display:block;font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.04em;margin:6px 0 2px;color:var(--ink)}
+  .sw .rgb{font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+  .sw .role{font-size:12px;color:var(--ink-soft);margin-top:11px;border-top:1px solid #eee;padding-top:11px}
+  .sw-sm{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .sw-sm .c{height:64px;border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:flex-start;padding:6px;font-size:9px;color:#fff;font-weight:500}
+  .sw-sm .lab{font-size:10px;color:var(--ink-soft);margin-top:6px;text-align:center}
+  .sw-sm .cell{}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{border:1px solid var(--ph-line);padding:10px 12px;text-align:left;vertical-align:middle}
+  thead th{background:var(--navy);color:var(--paper);font-weight:500;font-size:11.5px;letter-spacing:.03em}
+  tbody tr:nth-child(even){background:rgba(225,218,203,.34)}
+  .dot{display:inline-block;width:13px;height:13px;border-radius:3px;vertical-align:middle;margin-right:8px;border:1px solid rgba(0,0,0,.15)}
+  .tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;white-space:nowrap}
+  .tag.eo{background:#e4e6fd;color:var(--eoblue-d)}
+  .tag.own{background:#efe9dc;color:#7a7363}
+
+  .rules{list-style:none}
+  .rules li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(12,12,49,.12);font-size:13.5px}
+  .rules .n{font-family:'Playfair Display',serif;font-style:italic;color:var(--eoblue);min-width:22px}
+  .rules b{font-family:'Noto Serif JP';font-weight:500}
+
+  /* type specimen */
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .ty{background:var(--paper);padding:26px 24px}
+  .ty .lab{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .ty .big-serif{font-family:'Noto Serif JP';font-weight:500;font-size:34px;line-height:1.3}
+  .ty .big-sans{font-family:'Noto Sans JP';font-weight:400;font-size:17px}
+  .ty .note{font-size:11.5px;color:var(--ink-soft);margin-top:14px}
+  .ty .roboto{font-family:'Roboto';}
+
+  /* contrast */
+  .ct{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .ct .pair{border:1px solid var(--line);padding:18px;display:flex;justify-content:space-between;align-items:center}
+  .ct .ratio{font-family:'Playfair Display';font-size:22px}
+  .ct .pass{font-size:10px;letter-spacing:.1em;padding:3px 9px;border-radius:2px;background:#d9f2e6;color:#1a6b4e}
+
+  footer{background:var(--ink);color:var(--paper);padding:46px 0 34px}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;font-size:11px;letter-spacing:.08em;color:rgba(244,241,234,.6)}
+  .foot b{font-family:'Playfair Display';font-style:italic;color:var(--paper);font-size:17px;display:block;margin-bottom:6px}
+
+  @media(max-width:860px){.sw-grid{grid-template-columns:1fr 1fr}.type-grid,.ct{grid-template-columns:1fr}.sw-sm{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.sw-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">EO Tokyo West — Color System</div>
+    <h1 class="mincho">色調ガイド<br><em>Brand Color & Type</em></h1>
+    <p class="intro">EO公式カラー（ベースブルー・EOブルー・グレー）を土台に、紙の温かみと明朝書体でWest独自の編集的レイヤーを重ねた配色体系です。<b>EOブルーは"差し色限定"</b>で、これはEO公式の「プライマリは限定使用」というルールとも一致します。</p>
+    <div class="meta"><span>案 B ／ ハイブリッド</span><span>EO準拠＝色の骨格</span><span>West独自＝紙・書体</span><span>2026.06 Galante</span></div>
+  </div>
+</header>
+
+<!-- BASE -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">01</span><span class="t mincho">ベースカラー</span><span class="en">Base</span></div>
+    <p class="lead">基調はEOインクネイビー × ホワイト。EO公式の「ベース＝全般使用」と一致します。ペーパーホワイトだけがWest独自の温かみです。</p>
+    <div class="sw-grid">
+      <div class="sw"><div class="chip" style="background:#0c0c31"><span class="badge dark-eo">EO準拠</span></div><div class="body"><div class="nm">EOインクネイビー</div><code>#0C0C31</code><div class="rgb">RGB 12 · 12 · 49</div><div class="role">テキスト・濃色面・フッター・反転セクションの地。<b>主役の濃色</b>。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f4f1ea"><span class="badge own">West独自</span></div><div class="body"><div class="nm">ペーパーホワイト</div><code>#F4F1EA</code><div class="rgb">RGB 244 · 241 · 234</div><div class="role">サイト全体の背景。紙の質感でエディトリアルな温度を出す。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff;border-bottom:1px solid var(--ph-line)"><span class="badge eo">EO準拠</span></div><div class="body"><div class="nm">ピュアホワイト</div><code>#FFFFFF</code><div class="rgb">RGB 255 · 255 · 255</div><div class="role">カード面・反転テキスト。EO公式ベースホワイト。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCENT -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">02</span><span class="t mincho">アクセント（差し色）</span><span class="en">Accent</span></div>
+    <p class="lead">EOブルーは<b>面で塗らず、点で効かせる</b>。リンク・強調・見出しの番号・図のキーライン・CTAの縁取りなど。多用すると安っぽくなり、EOの「限定使用」ルールにも反します。</p>
+    <div class="sw-grid">
+      <div class="sw"><div class="chip" style="background:#3d49f2"><span class="badge dark-eo">EO準拠 ・ プライマリ</span></div><div class="body"><div class="nm">EOブルー</div><code>#3D49F2</code><div class="rgb">RGB 61 · 73 · 242</div><div class="role"><b>唯一の差し色</b>。リンク／強調／番号／CTA縁／キーライン。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#3239cb"><span class="badge dark-eo">EO Web実装</span></div><div class="body"><div class="nm">ディープブルー</div><code>#3239CB</code><div class="rgb">RGB 50 · 57 · 203</div><div class="role">EOブルーのホバー・押下時。濃く締めたい小面積に。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#a3a7e4"><span class="badge eo">補助</span></div><div class="body"><div class="nm">ミストブルー</div><code>#A3A7E4</code><div class="rgb">RGB 163 · 167 · 228</div><div class="role">EOブルーの淡色。罫線・微背景・反転地の小ラベル。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEUTRAL -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">03</span><span class="t mincho">ニュートラル & 図表用</span><span class="en">Neutral / Chart</span></div>
+    <p class="lead">グレーは補助テキスト用（EO公式グレー準拠）。下段のアクセント5色は<b>チャート・グラフ専用</b>で、これもEO公式の用途ルールに沿います。通常のUIには使いません。</p>
+    <div class="sw-grid" style="margin-bottom:30px">
+      <div class="sw"><div class="chip" style="background:#5e617d"><span class="badge dark-eo">EO準拠</span></div><div class="body"><div class="nm">ミッドグレー</div><code>#5E617D</code><div class="rgb">RGB 94 · 97 · 125</div><div class="role">キャプション・補助テキスト・メタ情報。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#ebe6db"><span class="badge own">West独自</span></div><div class="body"><div class="nm">ストーングレー</div><code>#EBE6DB</code><div class="rgb">RGB 235 · 230 · 219</div><div class="role">微背景・カードの地・セクション交互。</div></div></div>
+      <div class="sw"><div class="chip" style="background:#c8bfa9"><span class="badge own">West独自</span></div><div class="body"><div class="nm">ラインベージュ</div><code>#C8BFA9</code><div class="rgb">RGB 200 · 191 · 169</div><div class="role">罫線・区切り。紙に馴染む細線。</div></div></div>
+    </div>
+    <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">図表専用アクセント（EO公式）</div>
+    <div class="sw-sm">
+      <div class="cell"><div class="c" style="background:#ff3463">#FF3463</div><div class="lab">ピンク</div></div>
+      <div class="cell"><div class="c" style="background:#fa653c">#FA653C</div><div class="lab">オレンジ</div></div>
+      <div class="cell"><div class="c" style="background:#efb82e;color:#0c0c31">#EFB82E</div><div class="lab">イエロー</div></div>
+      <div class="cell"><div class="c" style="background:#1ea691">#1EA691</div><div class="lab">グリーン</div></div>
+      <div class="cell"><div class="c" style="background:#1d007f">#1D007F</div><div class="lab">パープル</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EO MAPPING -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">04</span><span class="t mincho">EOブランドとの対応</span><span class="en">Mapping</span></div>
+    <p class="lead">どこが「EO準拠（＝公式の色をそのまま採用）」で、どこが「West独自（＝裁量で足したレイヤー）」かの一覧。ロゴだけは別途EO規定の遵守が必要です。</p>
+    <table>
+      <thead><tr><th>West の色 / 要素</th><th>HEX</th><th>EO公式での位置づけ</th><th>区分</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dot" style="background:#0c0c31"></span>EOインクネイビー</td><td>#0C0C31</td><td>ベースブルー</td><td><span class="tag eo">EO準拠</span></td></tr>
+        <tr><td><span class="dot" style="background:#3d49f2"></span>EOブルー</td><td>#3D49F2</td><td>プライマリ「EOブルー」</td><td><span class="tag eo">EO準拠</span></td></tr>
+        <tr><td><span class="dot" style="background:#ffffff;border-color:#ccc"></span>ピュアホワイト</td><td>#FFFFFF</td><td>ベースホワイト</td><td><span class="tag eo">EO準拠</span></td></tr>
+        <tr><td><span class="dot" style="background:#5e617d"></span>ミッドグレー</td><td>#5E617D</td><td>グレー（アクセント）</td><td><span class="tag eo">EO準拠</span></td></tr>
+        <tr><td><span class="dot" style="background:#f4f1ea;border-color:#ccc"></span>ペーパーホワイト</td><td>#F4F1EA</td><td>—（該当なし）</td><td><span class="tag own">West独自</span></td></tr>
+        <tr><td>見出し書体（明朝）</td><td>—</td><td>EOはRoboto推奨（強制でない）</td><td><span class="tag own">West独自</span></td></tr>
+        <tr><td>EOロゴ</td><td>—</td><td>改変不可・規定遵守</td><td><span class="tag eo">★ルール</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RULES -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">05</span><span class="t mincho">配色ルール</span><span class="en">Usage</span></div>
+    <ul class="rules">
+      <li><span class="n">1</span><div><b>基調はネイビー × ホワイト。</b>面の大半はこの2色。EO公式「ベース＝全般使用」に一致。</div></li>
+      <li><span class="n">2</span><div><b>EOブルーは差し色限定。</b>リンク・強調・番号・CTA縁・図のキーラインのみ。面で多用しない（EO「プライマリは限定使用」に一致）。</div></li>
+      <li><span class="n">3</span><div><b>旧テラコッタは廃止。</b>EOと無関係の色だったため、EOブルーへ置換済み。</div></li>
+      <li><span class="n">4</span><div><b>アクセント5色は図表専用。</b>チャート・グラフのみ。通常UIには使わない（EOルールに一致）。</div></li>
+      <li><span class="n">5</span><div><b>ロゴは触らない。</b>色・比率・「O」内への画像挿入は禁止。EO規定のロゴをそのまま配置。</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">06</span><span class="t mincho">タイポグラフィ</span><span class="en">Type</span></div>
+    <p class="lead">見出しは明朝（West独自の編集的個性）、本文はサンセリフ。EOはRoboto推奨ですが強制ではないため、本文をRoboto系にするとEOにも一歩寄せられます。</p>
+    <div class="type-grid">
+      <div class="ty"><div class="lab">見出し ／ Heading — West独自</div><div class="big-serif">挑戦する経営者の物語</div><div class="note">Noto Serif JP（明朝）＋ Playfair Display（欧文）。エディトリアルな品格でWestの個性を担う。</div></div>
+      <div class="ty"><div class="lab">本文 ／ Body — EOに寄せる選択肢</div><div class="big-sans roboto">EO Tokyo West connects entrepreneurs.<br>年商1億円以上の起業家コミュニティ。</div><div class="note">本文に Roboto を採れば、EO推奨フォントと揃い「独自×一体感」の折衷になる。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRAST -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="no">07</span><span class="t mincho">コントラスト比</span><span class="en">Accessibility</span></div>
+    <p class="lead">主要な組み合わせのWCABコントラスト比（概算）。EO公式もアクセシビリティ比を定義しており、それに準じます。</p>
+    <div class="ct">
+      <div class="pair" style="background:#f4f1ea"><span style="color:#0c0c31;font-weight:500">ネイビー文字 × 紙背景</span><span class="ratio" style="color:#0c0c31">16.9:1</span><span class="pass">AAA</span></div>
+      <div class="pair" style="background:#0c0c31"><span style="color:#fff;font-weight:500">白文字 × ネイビー地</span><span class="ratio" style="color:#fff">17.4:1</span><span class="pass">AAA</span></div>
+      <div class="pair" style="background:#ffffff"><span style="color:#3d49f2;font-weight:500">EOブルー × 白</span><span class="ratio" style="color:#3d49f2">6.1:1</span><span class="pass">AA</span></div>
+      <div class="pair" style="background:#f4f1ea"><span style="color:#5e617d;font-weight:500">グレー × 紙背景</span><span class="ratio" style="color:#5e617d">4.6:1</span><span class="pass">AA</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>Galante</b>EO Tokyo West ｜ Color System v1 — 案B ハイブリッド</div>
+    <div>EO準拠＝色の骨格 ／ West独自＝紙・明朝 ／ ロゴ＝規定遵守</div>
+  </div>
+</footer>
+</body>
+</html>
